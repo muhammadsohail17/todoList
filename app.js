@@ -4,6 +4,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const _ = require("lodash");
+const path = require('path');
+  const dotenv = require('dotenv');
+  dotenv.config({ path: path.resolve(__dirname, '.env') })
 
 const app = express();
 
@@ -12,7 +15,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-
+console.log('process.env.PORT', process.env.PORT)
 mongoose.connect("mongodb+srv://Admin-sohail:Test123!@node-rest-shop.mlfevue.mongodb.net/test", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false});
 
 
